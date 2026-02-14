@@ -1,0 +1,39 @@
+# ==========================================
+# PDF Consultor - Docker Compose
+# ==========================================
+
+version: '3.8'
+
+services:
+  pdf-consultor:
+    build: .
+    container_name: pdf-consultor
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./pdfs:/app/pdfs
+      - ./indexes:/app/indexes
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - pdf-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  pdf-network:
+    driver: bridge
+
+volumes:
+  pdfs:
+  indexes:
+  data:
+  logs:

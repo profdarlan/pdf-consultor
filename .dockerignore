@@ -1,0 +1,55 @@
+# ==========================================
+# PDF Consultor - Docker Ignore
+# ==========================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+venv2/
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Data
+pdfs/
+indexes/
+data/
+*.db
+*.sqlite
+
+# Cache
+.cache/
+*.cache
+.pytest_cache/
+
+# Git
+.git/
+.github/
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
